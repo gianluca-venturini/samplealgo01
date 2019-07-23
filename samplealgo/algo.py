@@ -2,6 +2,7 @@ import alpaca_trade_api as tradeapi
 import pandas as pd
 import time
 import logging
+import os
 
 from .universe import Universe
 
@@ -10,8 +11,8 @@ logging.basicConfig(level=logging.DEBUG)
 
 NY = 'America/New_York'
 api = tradeapi.REST(
-    key_id='REPLACEME',
-    secret_key='REPLACEME',
+    key_id=os.environ.get('APCA_API_KEY_ID'),
+    secret_key=os.environ.get('APCA_API_SECRET_KEY'),
     base_url='https://paper-api.alpaca.markets'
 )
 
